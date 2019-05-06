@@ -14,5 +14,19 @@ class StringTest {
 		// would return 5 or anything else!!!
 		// run as -> junit test --> green bar = success
 	}
+	
+	@Test
+	void firstRealTestPass() {
+		int actuallength = "ABCD".length();
+		int expectedLength = 4;
+		assertEquals(expectedLength, actuallength);
+	}
+	
+	@Test
+	void firstRealTestFail() {
+		int actuallength = "ABCDE".length();
+		int expectedLength = 4;
+		assertEquals(expectedLength, actuallength);
+	}
 
 }
