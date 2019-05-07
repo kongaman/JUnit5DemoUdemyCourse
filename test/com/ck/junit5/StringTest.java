@@ -30,5 +30,18 @@ class StringTest {
 		assertFalse(result); //<- just Demo same as above
 		//assertTrue(result);
 	}
+	
+	@Test
+	void contains_basic2() {
+		assertFalse("abcdefgh".contains("ijk")); //inline ...more readable?!?
+	}
+	
+	@Test
+	void split_basic() {
+		String str = "abc def ghi";
+		String[] actualResult = str.split(" ");
+		String[] expectedResult = new String[] {"abc", "def", "ghi"};
+		assertArrayEquals(expectedResult, actualResult);
+	}
 
 }
