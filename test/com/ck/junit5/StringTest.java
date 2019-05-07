@@ -5,28 +5,30 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class StringTest {
-
-	@Test
-	void whatever() {
-		int length = "ABCD".length();
-		// we want to assert length == 4
-		// BUT: There is no check, so the test will succeed even if the length()-Method
-		// would return 5 or anything else!!!
-		// run as -> junit test --> green bar = success
-	}
 	
 	@Test
-	void firstRealTestPass() {
+	void length_basic() {
 		int actuallength = "ABCD".length();
 		int expectedLength = 4;
 		assertEquals(expectedLength, actuallength);
 	}
 	
 	@Test
-	void firstRealTestFail() {
-		int actuallength = "ABCDE".length();
-		int expectedLength = 4;
-		assertEquals(expectedLength, actuallength);
+	void toUpperCase_basic() {
+		String str = "abcd";
+		String result = str.toUpperCase();
+		assertNotNull(result); // <- just Demo doesn't make any sense here
+		//assertNull(result);
+		assertEquals("ABCD", result);
+	}
+	
+	@Test
+	void contains_basic() {
+		String str ="abcdefgh";
+		boolean result = str.contains("ijk");
+		assertEquals(false, result);
+		assertFalse(result); //<- just Demo same as above
+		//assertTrue(result);
 	}
 
 }
