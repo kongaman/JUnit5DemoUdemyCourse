@@ -5,12 +5,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 
 class StringTest {
+	
+	@BeforeAll
+	// Done once for the entire testclass at the beginning
+	// Before/AfterAll have to be static
+	static void schneewittchen() {
+		System.out.println("Initialize connection to database");
+	}
+	
+	@AfterAll
+	// Done once for the entire testclass at the end
+	static void rosenrot() {
+		System.out.println("close connection to database");
+	}
 	
 	@BeforeEach
 	// = @Before in jUnit4
