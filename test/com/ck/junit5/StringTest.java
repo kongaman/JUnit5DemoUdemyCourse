@@ -8,13 +8,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 class StringTest {
 	
 	@BeforeEach
 	//This method is executed BEFORE EVERY single other test
-	void beforeEach() {
-		System.out.println("Initialize test data for each test");
+	void beforeEach(TestInfo info) {
+		System.out.println("Initialize test data for " + info.getDisplayName());
 	}
 	
 	@AfterEach
