@@ -13,12 +13,15 @@ import org.junit.jupiter.api.TestInfo;
 class StringTest {
 	
 	@BeforeEach
-	//This method is executed BEFORE EVERY single other test
+	// = @Before in jUnit4
+	// This method is executed BEFORE EVERY single other test
+	// Hint "TestInfo" did not exist in jUnit4
 	void beforeEach(TestInfo info) {
 		System.out.println("Initialize test data for " + info.getDisplayName());
 	}
 	
 	@AfterEach
+	// = @After in jUnit4
 	//This method is executed AFTER EVERY single other test
 	void afterEach() {
 		System.out.println("Clean up test data");
