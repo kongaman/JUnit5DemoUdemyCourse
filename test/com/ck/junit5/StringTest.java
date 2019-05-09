@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -47,6 +48,18 @@ class StringTest {
 		int actuallength = "ABCD".length();
 		int expectedLength = 4;
 		assertEquals(expectedLength, actuallength);
+	}
+	
+	@Test
+	void length_exception() {
+		String str = null;
+		//String str = "ABCD";
+		// short video on functional programming -> https://youtu.be/aFCNPHfvqEU
+		// the first parameter is the exception that is expected to be thrown
+		// the second parameter of assertThrows is the code that is expected to throw the exception
+		// lambda expression
+		// this test will fail if NO exception is thrown!!!
+		assertThrows(NullPointerException.class, () -> { str.length(); }  );
 	}
 	
 	@Test
