@@ -98,7 +98,8 @@ class StringTest {
 		assertEquals(capitalizedStr, str.toUpperCase());
 	}
 	
-	@ParameterizedTest
+	@ParameterizedTest(name = "{0} length is {1}")
+	// oder of parameters ({0} etc.) is equal to the order of params in @CsvSource ({0} = abcd in 1. test, abc in 2nd...)
 	@CsvSource(value = {"abcd, 4", "abc, 3", "'', 0", "abcdefg, 7"})
 	// in csv empty values have to be represented by single quotes ('')
 	void patameterized_test_length(String str, int expectedLength) {
