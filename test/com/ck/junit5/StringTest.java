@@ -15,6 +15,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class StringTest {
@@ -77,8 +78,31 @@ class StringTest {
 	
 	@ParameterizedTest
 	@ValueSource(strings= {"ABCD", "ABC", "A", "def"})
+	// the test is executed for every parameter defined in @ValueSource
 	void paramterized_test_length_greater_that_zero(String str) {
 		assertTrue(str.length() > 0);
+	}
+	
+	@Test
+	void upperCase() {
+		assertEquals("ABCD", "abcd".toUpperCase());
+		assertEquals("ABC", "abc".toUpperCase());
+		assertEquals("", "".toUpperCase());
+		assertEquals("ABCDEFG", "abcdefg".toUpperCase());
+	}
+	
+	@ParameterizedTest
+	@CsvSource(value = {"abcd, ABCD", "abc, ABC", "'', ''", "abcdefg, ABCDEFG"})
+	// in csv empty values have to be represented by single quotes ('')
+	void patameterized_test_upperCase(String str, String capitalizedStr) {
+		assertEquals(capitalizedStr, str.toUpperCase());
+	}
+	
+	@ParameterizedTest
+	@CsvSource(value = {"abcd, 4", "abc, 3", "'', 0", "abcdefg, 7"})
+	// in csv empty values have to be represented by single quotes ('')
+	void patameterized_test_length(String str, int expectedLength) {
+		assertEquals(expectedLength, str.length());
 	}
 	
 	@Test
