@@ -14,6 +14,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
@@ -142,6 +143,20 @@ class StringTest {
 	
 	@Test
 	void performanceTest() {
+		// Duration contains the timespan your code should take at max to be executed
+		assertTimeout(Duration.ofSeconds(5), 
+				() -> {
+					for (int i = 0; i <= 2000000; i++) {
+						int j = i;
+						System.out.println(j);
+					}
+				});
+		
+	}
+	
+	@Test
+	@Disabled //@Ignored in jUnit4
+	void performanceTest2() {
 		// Duration contains the timespan your code should take at max to be executed
 		assertTimeout(Duration.ofSeconds(5), 
 				() -> {
