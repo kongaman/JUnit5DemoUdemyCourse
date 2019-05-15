@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
+
+import java.time.Duration;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -135,6 +138,19 @@ class StringTest {
 	@RepeatedTest(10)
 	void contains_basic2_Repeat() {
 		assertFalse("abcdefgh".contains("ijk")); //inline ...more readable?!?
+	}
+	
+	@Test
+	void performanceTest() {
+		// Duration contains the timespan your code should take at max to be executed
+		assertTimeout(Duration.ofSeconds(5), 
+				() -> {
+					for (int i = 0; i <= 2000000; i++) {
+						int j = i;
+						System.out.println(j);
+					}
+				});
+		
 	}
 	
 	@Test
