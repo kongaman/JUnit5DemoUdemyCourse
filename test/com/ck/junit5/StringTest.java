@@ -180,6 +180,7 @@ class StringTest {
 	}
 
 	@Nested
+	@DisplayName("For an empty string")
 	class EmptyStringTests {
 		
 		@BeforeEach
@@ -188,11 +189,13 @@ class StringTest {
 		}
 		
 		@Test
+		@DisplayName("length should be zero")
 		void lengthIsZero() {
 			assertEquals(0, str.length());
 		}
 		
 		@Test
+		@DisplayName("uppercase is empty")
 		void uppercaseIsEmpty() {
 			assertEquals("", str.toUpperCase());
 		}
